@@ -2,8 +2,12 @@ import { configureStore } from "@reduxjs/toolkit";
 import axios from "axios";
 import * as api from "./config";
 
+import { themeReducer } from "./features/theme/theme-slice";
+
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    theme: themeReducer,
+  },
   devTools: true,
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

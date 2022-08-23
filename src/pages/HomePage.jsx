@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 
 import { List } from "../components/List";
 import { Card } from "../components/Card";
-import { Controls } from "../components/Controls";
+import { Controls } from "../features/controls/Controls";
 import { useDispatch, useSelector } from "react-redux";
 import {
   selectCountiesInfo,

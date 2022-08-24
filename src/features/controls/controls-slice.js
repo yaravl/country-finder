@@ -6,6 +6,7 @@ const initialState = {
 };
 
 const controlsSlice = createSlice({
+  name: "@@controls",
   initialState,
   reducers: {
     setSearch: (state, action) => {

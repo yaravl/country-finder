@@ -4,11 +4,13 @@ import * as api from "./config";
 
 import { themeReducer } from "./features/theme/theme-slice";
 import { controlsReducer } from "./features/controls/controls-slice";
+import { countriesReducer } from "./features/countries/countries-slice";
 
 export const store = configureStore({
   reducer: {
     theme: themeReducer,
     controls: controlsReducer,
+    countries: countriesReducer,
   },
   devTools: true,
   middleware: (getDefaultMiddleware) =>
@@ -16,7 +18,7 @@ export const store = configureStore({
       thunk: {
         extraArgument: {
           client: axios,
-          api,
+          api: api,
         },
       },
       serializableCheck: false,

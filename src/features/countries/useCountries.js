@@ -17,15 +17,18 @@ export const useCountries = () => {
   const { status, error, qty } = useSelector(selectCountiesInfo);
 
   React.useEffect(() => {
-    //TODO: доелать тосты - промисы
     if (!qty) {
-      toast.promise(dispatch(loadCountries()), {
-        success: "Countries loaded!",
-        pending: "loading",
-        error: "Error to fetch!",
-      });
+      dispatch(loadCountries());
     }
   }, [qty, dispatch]);
+
+  React.useEffect(() => {
+    if (status === "loading") {
+      toast(status);
+    } else {
+      toast.dismiss();
+    }
+  }, [status]);
 
   return [countries, { status, error, qty }];
 };
